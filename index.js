@@ -38,22 +38,22 @@ function getSearch(req, res) {
 function getList(req, res) {
 
 
-    http.get('http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944', (resp) => {
-        let data = '';
+    // http.get('http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944', (resp) => {
+    //     let data = '';
 
-        // A chunk of data has been recieved.
-        resp.on('data', (chunk) => {
-            console.log(chunk);
-        });
+    //     // A chunk of data has been recieved.
+    //     resp.on('data', (chunk) => {
+    //         console.log(chunk);
+    //     });
 
-        // The whole response has been received. Print out the result.
-        // resp.on('end', () => {
-        //     console.log(data);
-        // });
+    //     // The whole response has been received. Print out the result.
+    //     // resp.on('end', () => {
+    //     //     console.log(data);
+    //     // });
 
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
-    });
+    // }).on("error", (err) => {
+    //     console.log("Error: " + err.message);
+    // });
 
 
     // console.log("getting list");
