@@ -63,7 +63,7 @@ function getClearance() {
 
             var results = this.responseText;
             results = JSON.parse(results);
-            console.log(results);
+            console.log("hellooo", results);
             // results.forEach(result => document.getElementById("stuff").innerHTML += "<br><br>" + result.Title + "<button onclick='showDetails()'>More Details</button>");
 
         }
