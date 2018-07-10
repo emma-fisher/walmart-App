@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var XMLHttpRequest = require('xhr2');
+const http = require('http');
+
 
 
 app.set("port", process.env.PORT || 5000)
@@ -34,45 +36,39 @@ function getSearch(req, res) {
 }
 
 function getList(req, res) {
-    console.log("getting list");
-    var result = [{
-            id: 1,
-            name: "pears"
-        },
-        {
-            id: 2,
-            name: "chicken"
-        },
-        {
-            id: 3,
-            name: "bread"
-        }
-    ];
-    getClearance();
-    res.json(result);
-}
 
-function getClearance() {
 
-    // console.log(document.getElementById("movies").value);
-    //var thing = document.getElementById("movies").value;
+    http.get('http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944', (resp) => {
+        let data = '';
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        // A chunk of data has been recieved.
+        resp.on('data', (chunk) => {
+            console.log(chunk);
+        });
 
-            var results = this.responseText;
-            results = JSON.parse(results);
-            console.log("hellooo", results);
-            // results.forEach(result => document.getElementById("stuff").innerHTML += "<br><br>" + result.Title + "<button onclick='showDetails()'>More Details</button>");
+        // The whole response has been received. Print out the result.
+        // resp.on('end', () => {
+        //     console.log(data);
+        // });
 
-        }
-    };
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
+    });
 
-    xhttp.open("GET", `http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944`);
-    xhttp.send();
-}
 
-function showDetails(title) {
-    console.log(title);
+    // console.log("getting list");
+    // var result = [{
+    //         id: 1,
+    //         name: "pears"
+    //     },
+    //     {
+    //         id: 2,
+    //         name: "chicken"
+    //     },
+    //     {
+    //         id: 3,
+    //         name: "bread"
+    //     }
+    // ];
+    // res.json(result);
 }
