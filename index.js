@@ -34,3 +34,23 @@ function getSearch(req, res) {
 
     res.json(result);
 }
+
+function getList(req, res) {
+
+
+    console.log("getting list");
+    var result = [{
+            id: 1,
+            name: "pears"
+        },
+        {
+            id: 2,
+            name: "chicken"
+        },
+        {
+            id: 3,
+            name: "bread"
+        }
+    ];
+    res.json(result);
+}
