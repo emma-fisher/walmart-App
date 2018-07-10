@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var XMLHttpRequest = require('xhr2');
 
 
 app.set("port", process.env.PORT || 5000)
