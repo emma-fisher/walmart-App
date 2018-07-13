@@ -15,7 +15,7 @@ function getClearance() {
         }
     };
 
-    xhttp.open("GET", `http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944`);
+    xhttp.open("GET", `http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944`, true);
     xhttp.send();
 }
 
