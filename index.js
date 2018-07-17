@@ -80,13 +80,15 @@ function addToList(req, res) {
             }
             throw err;
         }
+
+        res.render('pages/myList', {
+            result: "Hi Emma"
+        }, function (err, html) {
+            res.send(html);
+        })
     })
 
-    res.render('pages/myList', {
-        result: res
-    }, function (err, html) {
-        res.send(html);
-    })
+
 
 }
 
