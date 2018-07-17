@@ -178,26 +178,38 @@ function getHome(req, res) {
         'encoding': 'utf8',
         'gzip': true
     }
+
+
+
     var result = request(options, function cb(err, resp, body) {
-        if (!err && resp.statusCode == 200) {
-            // console.log(body);
-            cb(null, body);
-            body = JSON.parse(body);
-            var items = body.items;
-            var params = {
-                banana: items[0],
-                cereal: items[1],
-                peaches: items[2],
-                almondmilk: items[3],
-                rice: items[4],
-                pasta: items[5],
-                potatoes: items[6],
-                juice: items[7],
-                tuna: items[8],
-                oreo: items[9],
+        pool.query("SELECT * FROM items", function (err, myResult) {
+            if (err) {
+                throw err;
             }
-            res.render('pages/home', params)
-        }
+
+            if (!err && resp.statusCode == 200) {
+                // console.log(body);
+                cb(null, body);
+                body = JSON.parse(body);
+                var items = body.items;
+                var params = {
+                    banana: items[0],
+                    cereal: items[1],
+                    peaches: items[2],
+                    almondmilk: items[3],
+                    rice: items[4],
+                    pasta: items[5],
+                    potatoes: items[6],
+                    juice: items[7],
+                    tuna: items[8],
+                    oreo: items[9],
+                    resuly: myResult
+                }
+                res.render('pages/home', params)
+            }
+
+        })
+
     })
 
 
