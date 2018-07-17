@@ -73,21 +73,22 @@ function handleLogin(request, response) {
 }
 
 function addToList(req, res) {
-    pool.query("SELECT * FROM users WHERE first_name = 'Emma'", function (err, result) {
-        if (err) {
-            if (err.code === 'ETIMEDOUT') {
-                console.log("timeout error");
+    var url = 'http://api.walmartlabs.com/v1/items?ids=44390948,16785100,10415385,19476986,10315394,10534084,22734174,10415325,13398002,23554583&apiKey=qt6j3388qmyrfujtw36tpqcu';
+
+    var result = request(url, function cb(err, resp, body) {
+        pool.query("SELECT * FROM items WHERE user_id='fis17001@byui.edu'", function (err, myResult) {
+            if (err) {
+                throw err;
             }
-            throw err;
-        }
 
-        console.log("Back from db with result: ", result);
-        // res.json(result.rows);
-        var param = {
-            result: result
-        }
-
-        res.render('pages/myList', param)
+            if (!err && resp.statusCode == 200) {
+                cb(null, body);
+                var params = {
+                    result: myResult
+                }
+                res.render('pages/myList', params)
+            }
+        })
     })
 }
 
@@ -179,8 +180,6 @@ function getHome(req, res) {
         'gzip': true
     }
 
-
-
     var result = request(options, function cb(err, resp, body) {
         pool.query("SELECT * FROM items", function (err, myResult) {
             if (err) {
@@ -207,10 +206,6 @@ function getHome(req, res) {
                 }
                 res.render('pages/home', params)
             }
-
         })
-
     })
-
-
 }
