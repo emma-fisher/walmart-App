@@ -82,11 +82,10 @@ function addToList(req, res) {
         }
     })
 
-    var params = {
-        result: res
-    }
     res.render('pages/myList', {
         result: res
+    }, function (err, html) {
+        res.send(html);
     })
 
 }
