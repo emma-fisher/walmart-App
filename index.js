@@ -82,7 +82,7 @@ function addToList(req, res) {
         }
 
         console.log("got the result: ", result);
-        res.json("hello", result.rows);
+        res.json(result);
     })
 
 }
