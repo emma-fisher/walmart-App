@@ -81,8 +81,13 @@ function addToList(req, res) {
             throw err;
         }
 
+        var params = {
+            result: result
+        };
+
         console.log("got the result: ", result);
-        res.json(result);
+        res.render('pages/myList', params)
+        // res.json(result);
     })
 
 }
