@@ -39,7 +39,6 @@ app.set("port", process.env.PORT || 5000)
     .post('/login', handleLogin)
     .post('/logout', handleLogout)
     .post('/myList', addToList)
-    .get('/getServerTime', verifyLogin, getServerTime)
     .get("/search/:id", getSearch)
     .get("/myList", getList)
     // .get("/", (req, res) => res.render(path.join('home')))
@@ -108,16 +107,6 @@ function handleLogout(request, response) {
     response.json(result);
 }
 
-// This function returns the current server time
-function getServerTime(request, response) {
-    var time = new Date();
-
-    var result = {
-        success: true,
-        time: time
-    };
-    response.json(result);
-}
 
 // This is a middleware function that we can use with any request
 // to make sure the user is logged in.
