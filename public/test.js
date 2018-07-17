@@ -1,5 +1,5 @@
 function login() {
-    var username = $("#username").val();
+    var email = $("#email").val();
     var password = $("#password").val();
     var firstname = $("#firstname").val();
     var lastname = $("#lastname").val();
