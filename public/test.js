@@ -1,11 +1,15 @@
 function login() {
     var username = $("#username").val();
     var password = $("#password").val();
+    var firstname = $("#firstname").val();
+    var lastname = $("#lastname").val();
 
 
     var params = {
         username: username,
-        password: password
+        password: password,
+        firstname: firstname,
+        lastname: lastname
     };
 
     console.log(params);
