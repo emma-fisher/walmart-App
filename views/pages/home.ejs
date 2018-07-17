@@ -2,142 +2,203 @@
 
 <head>
     <title>Walmart Deals</title>
-    <link type="text/css" rel="stylesheet" href="/pages/home.css">
-    <!-- <script src="./public/apiCalls.js"></script> -->
+    <!-- <link type="text/css" rel="stylesheet" href="/public/home.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    <script>
+        function addToList() {
+            var thingToAdd = $("#banana").html();
+
+
+            var params = {
+                thingToAdd: thingToAdd
+            };
+
+            console.log(params);
+
+            $.post("/myList", params, function (result) {
+                if (result && result.success) {
+                    $("#status").text("Success");
+                } else {
+                    $("#status").text("Error");
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
     <h1>Walmart Deals</h1>
     <a href="/myList"> My Grocery List</a>
-    <div id="container" style="
-    column-count: 2;
-    margin-left: 150px;
-    margin-top: 50px;
-">
-        <table class="image" style="margin-bottom: 50px; border: solid black">
-            <tr>
-                <td>
-                    <img src="<%= banana.mediumImage %>" alt="Banana">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Banana $
-                    <%= banana.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= cereal.mediumImage %>" alt="Cereal">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Cereal $
-                    <%= cereal.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= peaches.mediumImage %>" alt="Peaches">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Peaches $
-                    <%= peaches.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= almondmilk.mediumImage %>" alt="Almond milk">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Almond milk $
-                    <%= almondmilk.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= rice.mediumImage %>" alt="Rice">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Rice $
-                    <%= rice.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= pasta.mediumImage %>" alt="Pasta">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Pasta $
-                    <%= pasta.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= potatoes.mediumImage %>" alt="Potatoes">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Potatoes $
-                    <%= potatoes.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= juice.mediumImage %>" alt="Juice">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Juice $
-                    <%= juice.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= tuna.mediumImage %>" alt="Tuna">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Tuna $
-                    <%= tuna.salePrice %>
-                </td>
-            </tr>
-        </table>
-        <table class="image" style="margin-bottom: 50px;">
-            <tr>
-                <td>
-                    <img src="<%= oreo.mediumImage %>" alt="Oreo">
-                </td>
-            </tr>
-            <tr>
-                <td class="caption">Oreo $
-                    <%= oreo.salePrice %>
-                </td>
-            </tr>
-        </table>
+
+
+    <div class="ui grid" style="margin-left:30px;">
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= banana.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header" id="banana">Banana</a>
+                    <div class="description"> $
+                        <%= banana.salePrice %>
+                            <button class="ui primary button" onclick="addToList()" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= cereal.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Cereal</a>
+                    <div class="description"> $
+                        <%= cereal.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= peaches.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Peaches</a>
+                    <div class="description"> $
+                        <%= peaches.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= almondmilk.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Almond Milk</a>
+                    <div class="description"> $
+                        <%= almondmilk.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= rice.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Rice</a>
+                    <div class="description"> $
+                        <%= rice.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= pasta.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Pasta</a>
+                    <div class="description"> $
+                        <%= pasta.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= potatoes.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Potatoes</a>
+                    <div class="description"> $
+                        <%= potatoes.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= juice.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Juice</a>
+                    <div class="description"> $
+                        <%= juice.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= tuna.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Tuna</a>
+                    <div class="description"> $
+                        <%= tuna.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= oreo.mediumImage %>">
+                </div>
+                <div class="content">
+                    <a class="header">Oreo</a>
+                    <div class="description"> $
+                        <%= oreo.salePrice %>
+                            <button class="ui primary button" style="margin-left:5px;">
+                                Add to myList
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
 </body>
-
 
 </html>

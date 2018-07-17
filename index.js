@@ -5,6 +5,16 @@ var XMLHttpRequest = require('xhr2');
 const http = require('http');
 var session = require('express-session');
 var request = require('request');
+const {
+    Pool
+} = require('pg');
+
+var connectionString = process.env.DATABASE_URL || 'postgres://xrexoekpptodxp:4b48a7123696130e7c3a34385c71c6156e626256bc93c498f33986b6ac4b748b@ec2-23-23-92-179.compute-1.amazonaws.com:5000/ddt326pp5gijtv'
+const pool = new Pool({
+    connectionString: connectionString
+});
+
+
 
 app.use(session({
     secret: 'my-super-secret-secret!',
@@ -28,6 +38,7 @@ app.set("port", process.env.PORT || 5000)
     .use(logRequest)
     .post('/login', handleLogin)
     .post('/logout', handleLogout)
+    .post('/myList', addToList)
     .get('/getServerTime', verifyLogin, getServerTime)
     .get("/search/:id", getSearch)
     .get("/myList", getList)
@@ -59,6 +70,21 @@ function handleLogin(request, response) {
     }
 
     response.json(result);
+}
+
+function addToList(req, res) {
+    pool.query("SELECT * FROM users WHERE first_name = 'Emma'", function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("you suck");
+            }
+            throw err;
+        }
+
+        console.log("got the result: ", result);
+        res.json(result.rows);
+    })
+
 }
 
 // If a user is currently stored on the session, removes it
@@ -134,13 +160,12 @@ function getSearch(req, res) {
 }
 
 function getList(req, res) {
-    res.json("This is my list");
+    res.render('pages/myList')
+    // res.json("This is my list");
 }
 
 
 function getHome(req, res) {
-
-    //var url = 'http://api.walmartlabs.com/v1/feeds/clearance?apikey=qt6j3388qmyrfujtw36tpqcu&amp;categoryId=3944';
     var url = 'http://api.walmartlabs.com/v1/items?ids=44390948,16785100,10415385,19476986,10315394,10534084,22734174,10415325,13398002,23554583&apiKey=qt6j3388qmyrfujtw36tpqcu';
     // 16785100
     // qt6j3388qmyrfujtw36tpqcu
@@ -167,7 +192,6 @@ function getHome(req, res) {
                 tuna: items[8],
                 oreo: items[9],
             }
-            // res.json(items);
             res.render('pages/home', params)
         }
     })
