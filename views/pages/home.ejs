@@ -47,7 +47,9 @@
                     <a class="header" id="banana">Banana</a>
                     <div class="description"> $
                         <%= banana.salePrice %>
-                            <span class="date" style="margin-left:5px;">result.rows[0].name</span>
+                            <span class="date" style="margin-left:5px;">
+                                <%=result.rows[0].name%>
+                            </span>
                     </div>
                     <div class="meta">
                         <button class="ui primary button" onclick="addToList()" style="margin-left:15px;">
