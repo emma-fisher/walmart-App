@@ -42,3 +42,43 @@ INSERT INTO items
     (name, price, user_id)
 VALUES
     ('Cereal', '3.28', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Peaches', '1.86', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Almond Milk', '1.94', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Rice', '1.48', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Pasta', '1.48', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Potatoes', '2.78', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Juice', '2.48', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Tuna', '1.48', 'fis17001@byui.edu');
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES
+    ('Oreo', '2.98', 'fis17001@byui.edu');
