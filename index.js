@@ -82,17 +82,11 @@ function addToList(req, res) {
         }
     })
 
-    var result = request(options, function cb(err, resp, body) {
-        if (!err && resp.statusCode == 200) {
-            // console.log(body);
-            cb(null, body);
-            body = JSON.parse(body);
-            var items = body.items;
-            var params = {
-                result: res
-            }
-            res.render('pages/myList', params)
-        }
+    var params = {
+        result: res
+    }
+    res.render('pages/myList', {
+        result: res
     })
 
 }
