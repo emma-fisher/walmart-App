@@ -41,7 +41,7 @@ app.set("port", process.env.PORT || 5000)
     .post('/myList', addToList)
     .get('/getServerTime', verifyLogin, getServerTime)
     .get("/search/:id", getSearch)
-    // .get("/myList", getList)
+    .get("/myList", getList)
     // .get("/", (req, res) => res.render(path.join('home')))
     .get("/", getHome)
     .listen(app.get("port"), function () {
