@@ -163,9 +163,9 @@
                     <a class="header">Pasta</a>
                     <div class="description"> $
                         <%= pasta.salePrice %>
-                            <% if (result.rows[25].price.slice(1) > pasta.salePrice) { %>
+                            <% if (result.rows[5].price.slice(1) > pasta.salePrice) { %>
                                 <span class="date" style="margin-left:25px; color:red;">New price:
-                                    <%=result.rows[25].price%>
+                                    <%=result.rows[5].price%>
                                 </span>
                                 <%  }%>
                     </div>
