@@ -82,11 +82,11 @@ function addToList(req, res) {
         }
 
         console.log("Back from db with result: ", result);
-        res.json(result.rows);
+        // res.json(result.rows);
 
-        // res.render('pages/myList', {
-        //     result: "Hi Emma"
-        // })
+        res.render('pages/myList', {
+            hi: "Hi Emma"
+        })
     })
 }
 
