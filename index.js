@@ -81,17 +81,13 @@ function addToList(req, res) {
             throw err;
         }
 
-        res.json(result);
+        console.log("Back from db with result: ", result);
+        res.json(result.rows);
 
         // res.render('pages/myList', {
         //     result: "Hi Emma"
-        // }, function (err, html) {
-        //     res.send(html);
         // })
     })
-
-
-
 }
 
 // If a user is currently stored on the session, removes it
