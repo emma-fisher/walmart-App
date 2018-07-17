@@ -73,22 +73,21 @@ function handleLogin(request, response) {
 }
 
 function addToList(req, res) {
-    var url = 'http://api.walmartlabs.com/v1/items?ids=44390948,16785100,10415385,19476986,10315394,10534084,22734174,10415325,13398002,23554583&apiKey=qt6j3388qmyrfujtw36tpqcu';
-
-    var result = request(url, function cb(err, resp, body) {
-        pool.query("SELECT * FROM items WHERE user_id='fis17001@byui.edu'", function (err, myResult) {
-            if (err) {
-                throw err;
+    pool.query("SELECT * FROM items WHERE first_name = 'Emma'", function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("timeout error");
             }
+            throw err;
+        }
 
-            if (!err && resp.statusCode == 200) {
-                cb(null, body);
-                var params = {
-                    result: myResult
-                }
-                res.render('pages/myList', params)
-            }
-        })
+        console.log("Back from db with result: ", result);
+        // res.json(result.rows);
+        var param = {
+            result: result
+        }
+
+        res.render('pages/myList', param)
     })
 }
 
