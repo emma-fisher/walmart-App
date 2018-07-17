@@ -36,7 +36,7 @@ CREATE TABLE items
 INSERT INTO items
     (name, price, user_id)
 VALUES
-    ('Banana', '0.54', 'fis17001@byui.edu');
+    ('Banana', '0.60', 'fis17001@byui.edu');
 
 INSERT INTO items
     (name, price, user_id)
@@ -46,12 +46,12 @@ VALUES
 INSERT INTO items
     (name, price, user_id)
 VALUES
-    ('Peaches', '1.86', 'fis17001@byui.edu');
+    ('Peaches', '1.89', 'fis17001@byui.edu');
 
 INSERT INTO items
     (name, price, user_id)
 VALUES
-    ('Almond Milk', '1.94', 'fis17001@byui.edu');
+    ('Almond Milk', '2.15', 'fis17001@byui.edu');
 
 INSERT INTO items
     (name, price, user_id)
@@ -76,7 +76,7 @@ VALUES
 INSERT INTO items
     (name, price, user_id)
 VALUES
-    ('Tuna', '1.48', 'fis17001@byui.edu');
+    ('Tuna', '1.65', 'fis17001@byui.edu');
 
 INSERT INTO items
     (name, price, user_id)
