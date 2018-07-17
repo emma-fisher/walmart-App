@@ -203,7 +203,7 @@ function getHome(req, res) {
                     juice: items[7],
                     tuna: items[8],
                     oreo: items[9],
-                    resuly: myResult
+                    result: myResult
                 }
                 res.render('pages/home', params)
             }
