@@ -76,17 +76,18 @@ function addToList(req, res) {
     pool.query("SELECT * FROM users WHERE first_name = 'Emma'", function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
-                console.log("you suck");
+                console.log("timeout error");
             }
             throw err;
         }
 
         console.log("Back from db with result: ", result);
         // res.json(result.rows);
+        var param = {
+            result: result
+        }
 
-        res.render('pages/myList', {
-            hi: "Hi Emma"
-        })
+        res.render('pages/myList', param)
     })
 }
 
