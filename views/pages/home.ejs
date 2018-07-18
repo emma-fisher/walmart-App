@@ -12,14 +12,11 @@
         function addToList() {
             var target = event.target || event.srcElement;
             var id = target.id;
-            var price = id.salePrice;
-            // var myVar = target.parent();
-            var price = $(".description").html().split(":");
-            //console.log(price);
-            // if ($(".date")) {
-            //     price = $(".date").val();
-            // }
-            console.log(price);
+            // var price = id.toLowerCase();
+            console.log()
+            var price = $(".newPrice").html();
+
+            // console.log(price);
 
             var params = {
                 name: id,
@@ -69,7 +66,9 @@
                         <%= banana.salePrice %>
                             <% if (result.rows[0].price.slice(1) > banana.salePrice) { %>
                                 <span class="date" style="margin-left:25px; color:red;">New price:
-                                    <%=result.rows[0].price%>
+                                    <i id="newPrice">
+                                        <%=result.rows[0].price%>
+                                    </i>
                                 </span>
                                 <%  }%>
                     </div>
