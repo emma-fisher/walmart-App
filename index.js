@@ -71,7 +71,7 @@ function handleLogin(request, response) {
 
 function addToList(req, res) {
     console.log("in add list func");
-    var name = request.body.name;
+    var name = req.body.name;
     var price = '.4'
     var email = 'emma@byui.edu'
     var url;
