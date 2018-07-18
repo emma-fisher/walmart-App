@@ -54,7 +54,7 @@ app.set("port", process.env.PORT || 5000)
 
 // Checks if the username and password match a hardcoded set
 // If they do, put the username on the session
-function handleLogin(request, response) {
+function handleLogin(req, res) {
     var email = req.body.email;
     var password = req.body.password;
     request.session.user = email;
@@ -88,37 +88,35 @@ function handleSignUp(req, res) {
         }
 
         // res.json(result);
-        res.redirect('public/login.html');
+        res.redirect('/public/login.html');
     })
 }
 
 
 function addToList(req, res) {
-    console.log("in add list func");
-    var name = req.body.name;
-    var price = req.body.price;
-    var email = 'emma@byui.edu'
-    var url = req.body.url;
+    if (request.session.user) {
+        console.log("in add list func");
+        var name = req.body.name;
+        var price = req.body.price;
+        var email = request.session.user;
+        var url = req.body.url;
 
-    pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
-        if (err) {
-            if (err.code === 'ETIMEDOUT') {
-                console.log("timeout error");
+        pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
+            if (err) {
+                if (err.code === 'ETIMEDOUT') {
+                    console.log("timeout error");
+                }
+                throw err;
             }
-            throw err;
-        }
 
-        console.log("Back from db with result: ", result);
+            console.log("Back from db with result: ", result);
 
-        res.json(result);
+            res.json(result);
+        })
+    } else {
+        res.redirect("/public/login.html")
+    }
 
-        // res.json(result.rows);
-        // var param = {
-        //     result: result
-        // }
-
-        // res.render('pages/myList', param)
-    })
 }
 
 // If a user is currently stored on the session, removes it
