@@ -158,7 +158,7 @@ function getSearch(req, res) {
 }
 
 function getList(req, res) {
-    res.render('pages/myList')
+    //res.render('pages/myList')
     // res.json("This is my list");
 
     pool.query("SELECT * FROM items WHERE user_id = 'fis17001@byui.edu'", function (err, result) {
