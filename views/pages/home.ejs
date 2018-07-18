@@ -11,7 +11,7 @@
             var target = event.target || event.srcElement;
             var id = target.id;
 
-            console.log("hello", id.closest("#price"));
+            console.log("hello", $(this).closest("#price"));
 
             var price = $("#price").html();
 
