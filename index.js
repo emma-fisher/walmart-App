@@ -86,7 +86,7 @@ function handleSignUp(req, res) {
         }
 
         // res.json(result);
-        res.redirect('/login');
+        res.redirect('public/login.html');
     })
 }
 
