@@ -56,8 +56,6 @@ app.set("port", process.env.PORT || 5000)
 // If they do, put the username on the session
 function handleLogin(req, res) {
 
-    // var sessData = req.session;
-    // console.log("sessData", sessData);
     var email = req.body.email;
     var password = req.body.password;
     req.session.user = email;
@@ -69,7 +67,7 @@ function handleLogin(req, res) {
             }
             throw err;
         }
-
+        console.log(result);
         res.json(result);
         // res.redirect('public/views/home');
     })
