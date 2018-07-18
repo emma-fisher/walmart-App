@@ -11,8 +11,11 @@
     <script>
         function addToList() {
             var thingToAdd = $("#banana").html();
-            console.log(this.id);
 
+
+            var target = event.target || event.srcElement;
+            var id = target.id
+            console.log(id);
 
             var params = {
                 thingToAdd: thingToAdd
