@@ -71,13 +71,12 @@ function handleLogin(request, response) {
 
 function addToList(req, res) {
     console.log("in add list func");
-    var Rname = req.body.name;
-    var Rprice = '.4'
-    var Remail = 'emma@byui.edu'
-    var Rurl;
-    var name = 'name'
+    var name = req.body.name;
+    var price = req.body.price;
+    var email = 'emma@byui.edu'
+    var url;
 
-    pool.query(`INSERT INTO items(${name}, price, user_id) VALUES('${Rname}', '${Rprice}', '${Remail}')`, function (err, result) {
+    pool.query(`INSERT INTO items(name, price, user_id) VALUES('${name}', '${price}', '${email}')`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");

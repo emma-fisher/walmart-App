@@ -23,7 +23,11 @@
                 price = price.slice(1);
             }
 
-            console.log(price);
+            var myThing = "#" + id.toLowerCase();
+            var url = $(myThing);
+
+            console.log(myThing);
+            console.log(url);
 
             var params = {
                 name: id,
@@ -65,7 +69,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= banana.mediumImage %>">
+                    <img id="banana" src="<%= banana.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Banana</a>
@@ -92,7 +96,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= cereal.mediumImage %>">
+                    <img id="cereal" src="<%= cereal.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Cereal</a>
@@ -119,7 +123,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= peaches.mediumImage %>">
+                    <img id="peaches" src="<%= peaches.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Peaches</a>
@@ -146,7 +150,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= almondmilk.mediumImage %>">
+                    <img id="almondmilk" src="<%= almondmilk.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Almond Milk</a>
@@ -173,7 +177,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= rice.mediumImage %>">
+                    <img id="rice" src="<%= rice.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Peaches</a>
@@ -200,7 +204,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= pasta.mediumImage %>">
+                    <img id="pasta" src="<%= pasta.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Pasta</a>
@@ -227,7 +231,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= potatoes.mediumImage %>">
+                    <img id="potatoes" src="<%= potatoes.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Potatoes</a>
@@ -254,7 +258,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= juice.mediumImage %>">
+                    <img id="juice" src="<%= juice.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Juice</a>
@@ -281,7 +285,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= tuna.mediumImage %>">
+                    <img id="tuna" src="<%= tuna.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Tuna</a>
@@ -308,7 +312,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= oreo.mediumImage %>">
+                    <img id="oreo" src="<%= oreo.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Oreo</a>
