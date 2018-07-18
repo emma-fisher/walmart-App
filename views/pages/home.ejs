@@ -13,7 +13,7 @@
             var target = event.target || event.srcElement;
             var id = target.id;
             var price = id.salePrice;
-            var myVar = $(this).parent();
+            var myVar = target.parent();
             console.log(myVar);
 
             var params = {
