@@ -73,7 +73,7 @@ function handleLogin(request, response) {
 
 function addToList(req, res) {
     console.log("in add list func");
-    pool.query("SELECT * FROM items WHERE first_name = 'Emma'", function (err, result) {
+    pool.query("SELECT * FROM items WHERE user_id = 'fis17001@byui.edu'", function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
