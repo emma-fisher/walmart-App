@@ -67,9 +67,14 @@ function handleLogin(req, res) {
             }
             throw err;
         }
+        if (result.rows[0].password == password) {
+            res.redirect('public/views/home');
+        } else {
+            res.redirect('back');
+        }
         console.log(result.rows[0].password);
         // res.json(result);
-        res.redirect('public/views/home');
+
     })
 }
 
