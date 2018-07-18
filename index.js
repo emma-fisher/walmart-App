@@ -85,7 +85,8 @@ function handleSignUp(req, res) {
             throw err;
         }
 
-        res.json(result);
+        // res.json(result);
+        res.redirect('/login');
     })
 }
 

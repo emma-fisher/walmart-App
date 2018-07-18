@@ -50,6 +50,10 @@ function signUp() {
     console.log(params);
 
     $.post("/signUp", params, function (result) {
-        window.location.replace("https://peaceful-river-47246.herokuapp.com/login.html");
+        if (result && result.success) {
+            console.log("success");
+        } else {
+            console.log("error");
+        }
     });
 }
