@@ -55,6 +55,9 @@ app.set("port", process.env.PORT || 5000)
 // Checks if the username and password match a hardcoded set
 // If they do, put the username on the session
 function handleLogin(req, res) {
+
+    var sessData = req.session;
+    console.log("sessData", sessData);
     var email = req.body.email;
     var password = req.body.password;
     request.session.user = email;
