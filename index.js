@@ -67,7 +67,7 @@ function handleLogin(req, res) {
             }
             throw err;
         }
-        console.log(result);
+        console.log(result.rows[0].password);
         // res.json(result);
         res.redirect('public/views/home');
     })
