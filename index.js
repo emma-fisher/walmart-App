@@ -68,8 +68,8 @@ function handleLogin(req, res) {
             throw err;
         }
         console.log(result);
-        res.json(result);
-        // res.redirect('public/views/home');
+        // res.json(result);
+        res.redirect('public/views/home');
     })
 }
 
