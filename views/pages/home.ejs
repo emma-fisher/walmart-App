@@ -20,6 +20,7 @@
 
             if ($(theId).html() != undefined) {
                 price = $(theId).html();
+                price = price.slice(1);
             }
 
             console.log(price);
@@ -91,7 +92,7 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= banana.mediumImage %>">
+                    <img src="<%= cereal.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Cereal</a>
@@ -123,15 +124,19 @@
                 <div class="content">
                     <a class="header">Peaches</a>
                     <div class="description"> $
-                        <%= peaches.salePrice %>
-                            <% if (result.rows[2].price.slice(1) > peaches.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="pricePeaches">
+                            <%= peaches.salePrice %>
+                        </i>
+                        <% if (result.rows[2].price.slice(1) > peaches.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPricePeaches">
                                     <%=result.rows[2].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Peaches" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -146,15 +151,19 @@
                 <div class="content">
                     <a class="header">Almond Milk</a>
                     <div class="description"> $
-                        <%= almondmilk.salePrice %>
-                            <% if (result.rows[3].price.slice(1) > almondmilk.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="priceAlmondmilk">
+                            <%= almondmilk.salePrice %>
+                        </i>
+                        <% if (result.rows[3].price.slice(1) > almondmilk.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPriceAlmondmilk">
                                     <%=result.rows[3].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Almondmilk" class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
