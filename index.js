@@ -78,7 +78,7 @@ function addToList(req, res) {
     var Rurl;
     var name = 'name'
 
-    pool.query(`INSERT INTO items(${name}, price, user_id) VALUES(${Rname}, ${Rprice}, ${Remail})`, function (err, result) {
+    pool.query(`INSERT INTO items(${name}, price, user_id) VALUES(req.body.name, ${Rprice}, ${Remail})`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
