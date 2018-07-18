@@ -11,11 +11,14 @@
     <script>
         function addToList() {
             var target = event.target || event.srcElement;
-            var id = target.id
-            console.log(id);
+            var id = target.id;
+            var price = id.salePrice;
+            var myVar = $(this).parent();
+            console.log(myVar);
 
             var params = {
-                name: id
+                name: id,
+                price: price
             };
 
             console.log(params);
