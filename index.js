@@ -191,7 +191,7 @@ function getHome(req, res) {
     }
 
     var result = request(options, function cb(err, resp, body) {
-        pool.query("SELECT * FROM items", function (err, myResult) {
+        pool.query("SELECT * FROM items WHERE user_id='fis17001@byui.edu'", function (err, myResult) {
             if (err) {
                 throw err;
             }

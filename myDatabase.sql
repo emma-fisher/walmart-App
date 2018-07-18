@@ -31,7 +31,7 @@ CREATE TABLE items
     price MONEY,
     url VARCHAR(400),
     user_id VARCHAR REFERENCES users(email)
-)
+);
 
 
 INSERT INTO items
