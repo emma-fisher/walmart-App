@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var XMLHttpRequest = require('xhr2');
-const http = require('http');
 var session = require('express-session');
 var request = require('request');
 const {
@@ -73,8 +71,12 @@ function handleLogin(request, response) {
 
 function addToList(req, res) {
     console.log("in add list func");
+    var name = request.body.name;
+    var price = '.4'
+    var email = 'emma@byui.edu'
+    var url;
 
-    pool.query("INSERT INTO items(name, price, user_id) VALUES('Banana', '0.60', 'fis17001@byui.edu')", function (err, result) {
+    pool.query(`INSERT INTO items(name, price, user_id) VALUES(${name}, ${price}, ${email})`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
@@ -158,10 +160,10 @@ function getSearch(req, res) {
 }
 
 function getList(req, res) {
-    //res.render('pages/myList')
-    // res.json("This is my list");
 
-    pool.query("SELECT * FROM items WHERE user_id = 'fis17001@byui.edu'", function (err, result) {
+    var user_id = 'emma@byui.edu';
+
+    pool.query(`SELECT * FROM items WHERE user_id = ${user_id}`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
@@ -170,7 +172,6 @@ function getList(req, res) {
         }
 
         console.log("Back from db with result: ", result);
-        // res.json(result.rows);
         var param = {
             result: result
         }
