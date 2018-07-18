@@ -12,11 +12,14 @@
         function addToList() {
             var target = event.target || event.srcElement;
             var id = target.id;
-            // var price = id.toLowerCase();
-            var price = $("#newPrice").html();
-            console.log(price.slice(1));
 
-            // console.log(price);
+            var price = $("#price").html();
+
+            if ($("#newPrice").html() != undefined) {
+                price = $("#newPrice").html();
+            }
+
+            console.log(price);
 
             var params = {
                 name: id,
@@ -63,14 +66,16 @@
                 <div class="content">
                     <a class="header">Banana</a>
                     <div class="description"> $
-                        <%= banana.salePrice %>
-                            <% if (result.rows[0].price.slice(1) > banana.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
-                                    <i id="newPrice">
-                                        <%=result.rows[0].price%>
-                                    </i>
-                                </span>
-                                <%  }%>
+                        <i id="price">
+                            <%= banana.salePrice %>
+                        </i>
+                        <% if (result.rows[0].price.slice(1) > banana.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPrice">
+                                    <%=result.rows[0].price%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
                         <button id="Banana" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
