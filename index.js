@@ -62,7 +62,7 @@ function handleLogin(req, res) {
     var password = req.body.password;
     req.session.user = email;
 
-    pool.query(`SELECT password FROM users WHERE email=${email}`, function (err, result) {
+    pool.query(`SELECT password FROM users WHERE email='${email}'`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
