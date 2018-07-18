@@ -72,6 +72,7 @@ function handleLogin(request, response) {
 }
 
 function addToList(req, res) {
+    console.log("in add list func");
     pool.query("SELECT * FROM items WHERE first_name = 'Emma'", function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {

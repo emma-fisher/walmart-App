@@ -10,15 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script>
         function addToList() {
-            var thingToAdd = $("#banana").html();
-
-
             var target = event.target || event.srcElement;
             var id = target.id
             console.log(id);
 
             var params = {
-                thingToAdd: thingToAdd
+                thingToAdd: id
             };
 
             console.log(params);
