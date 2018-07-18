@@ -55,19 +55,21 @@ app.set("port", process.env.PORT || 5000)
 // Checks if the username and password match a hardcoded set
 // If they do, put the username on the session
 function handleLogin(request, response) {
-    var result = {
-        success: false
-    };
+    var email = req.body.email;
+    var password = req.body.password;
+    request.session.user = email;
 
-    // We should do better error checking here to make sure the parameters are present
-    if (request.body.email && request.body.password) {
-        request.session.email = request.body.email;
-        result = {
-            success: true
-        };
-    }
+    pool.query(`SELECT password FROM users WHERE email=${email}`, function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("timeout error");
+            }
+            throw err;
+        }
 
-    response.json(result);
+        res.json(result);
+        // res.redirect('public/views/home');
+    })
 }
 
 function handleSignUp(req, res) {
