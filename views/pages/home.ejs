@@ -88,20 +88,24 @@
         <div class="three wide column">
             <div class="ui card">
                 <div class="image">
-                    <img src="<%= cereal.mediumImage %>">
+                    <img src="<%= banana.mediumImage %>">
                 </div>
                 <div class="content">
                     <a class="header">Cereal</a>
                     <div class="description"> $
-                        <%= cereal.salePrice %>
-                            <% if (result.rows[1].price.slice(1) > cereal.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="price">
+                            <%= cereal.salePrice %>
+                        </i>
+                        <% if (result.rows[1].price.slice(1) > cereal.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPrice">
                                     <%=result.rows[1].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Cereal" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
