@@ -26,12 +26,10 @@
             var myThing = "#" + id.toLowerCase();
             var url = $(myThing).attr('src');;
 
-            console.log(myThing);
-            console.log(url);
-
             var params = {
                 name: id,
-                price: price
+                price: price,
+                url: url
             };
 
             console.log(params);

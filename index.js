@@ -74,9 +74,9 @@ function addToList(req, res) {
     var name = req.body.name;
     var price = req.body.price;
     var email = 'emma@byui.edu'
-    var url;
+    var url = req.body.url;
 
-    pool.query(`INSERT INTO items(name, price, user_id) VALUES('${name}', '${price}', '${email}')`, function (err, result) {
+    pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
