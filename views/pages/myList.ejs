@@ -34,24 +34,32 @@
         </div>
     </div>
 
-    <p>
-        <%=result%>
-    </p>
+
+
+
 
 
     <div class="ui grid" style="margin-left:30px;">
-        <div class="three wide column">
-            <div class="ui card">
-                <div class="image">
-                    <img src="">
-                </div>
-                <div class="content">
-                    <a class="header">Banana</a>
-                    <div class="description"> $
+
+        <% for(var i=0; i < result.rows.length; i++) { %>
+            <div class="three wide column">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="">
+                    </div>
+                    <div class="content">
+                        <a class="header">
+                            <%=result.rows[i].name%>
+                        </a>
+                        <div class="description"> $
+                            <%=result.rows[i].price%>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <% } %>
+
+
     </div>
 
 </body>
