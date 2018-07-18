@@ -73,7 +73,8 @@ function handleLogin(request, response) {
 
 function addToList(req, res) {
     console.log("in add list func");
-    pool.query("SELECT * FROM items WHERE user_id = 'fis17001@byui.edu'", function (err, result) {
+
+    pool.query("INSERT INTO items(name, price, user_id) VALUES('Banana', '0.60', 'fis17001@byui.edu')", function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
@@ -82,12 +83,15 @@ function addToList(req, res) {
         }
 
         console.log("Back from db with result: ", result);
-        // res.json(result.rows);
-        var param = {
-            result: result
-        }
 
-        res.render('pages/myList', param)
+        res.json(result);
+
+        // res.json(result.rows);
+        // var param = {
+        //     result: result
+        // }
+
+        // res.render('pages/myList', param)
     })
 }
 
@@ -156,6 +160,23 @@ function getSearch(req, res) {
 function getList(req, res) {
     res.render('pages/myList')
     // res.json("This is my list");
+
+    pool.query("SELECT * FROM items WHERE user_id = 'fis17001@byui.edu'", function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("timeout error");
+            }
+            throw err;
+        }
+
+        console.log("Back from db with result: ", result);
+        // res.json(result.rows);
+        var param = {
+            result: result
+        }
+
+        res.render('pages/myList', param)
+    })
 }
 
 
