@@ -12,9 +12,11 @@
             var id = target.id;
 
             // console.log("hello", $(this).closest("#price"));
+            var stuff = "#price" + id;
             var theId = "#newPrice" + id;
             console.log(theId);
-            var price = $("#price").html();
+
+            var price = $(stuff).html();
 
             if ($(theId).html() != undefined) {
                 price = $(theId).html();
