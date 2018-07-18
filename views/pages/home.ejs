@@ -12,9 +12,8 @@
             var id = target.id;
 
             // console.log("hello", $(this).closest("#price"));
-            console.log("hey", target.parents());
 
-            var price = $("#price").html();
+            var price = $(`#price${id}`).html();
 
             if ($("#newPrice").html() != undefined) {
                 price = $("#newPrice").html();
@@ -67,12 +66,12 @@
                 <div class="content">
                     <a class="header">Banana</a>
                     <div class="description"> $
-                        <i id="price">
+                        <i id="priceBanana">
                             <%= banana.salePrice %>
                         </i>
                         <% if (result.rows[0].price.slice(1) > banana.salePrice) { %>
                             <span class="date" style="margin-left:25px; color:red;">New price:
-                                <i id="newPrice">
+                                <i id="newPriceBanana">
                                     <%=result.rows[0].price%>
                                 </i>
                             </span>
@@ -94,12 +93,12 @@
                 <div class="content">
                     <a class="header">Cereal</a>
                     <div class="description"> $
-                        <i id="price">
+                        <i id="priceCereal">
                             <%= cereal.salePrice %>
                         </i>
                         <% if (result.rows[1].price.slice(1) > cereal.salePrice) { %>
                             <span class="date" style="margin-left:25px; color:red;">New price:
-                                <i id="newPrice">
+                                <i id="newPriceCereal">
                                     <%=result.rows[1].price%>
                                 </i>
                             </span>
