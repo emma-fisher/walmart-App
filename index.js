@@ -76,7 +76,7 @@ function addToList(req, res) {
     var Remail = 'emma@byui.edu'
     var Rurl;
 
-    pool.query(`INSERT INTO items(name, price, user_id) VALUES('Banana', ${Rprice}, ${Remail})`, function (err, result) {
+    pool.query(`INSERT INTO items(name, price, user_id) VALUES('Banana', ${Rprice}, 'emma@byui.edu')`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
