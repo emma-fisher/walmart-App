@@ -68,9 +68,9 @@ function handleLogin(req, res) {
             throw err;
         }
         if (result.rows[0].password == password) {
-            res.redirect('public/views/home');
+            res.redirect('/');
         } else {
-            res.redirect('back');
+            res.redirect('public/login.html');
         }
         console.log(result.rows[0].password);
         // res.json(result);
