@@ -21,6 +21,10 @@ INSERT INTO users
     (first_name, last_name, email, password)
 VALUES
     ('Zach', 'Fisher', 'zach@byui.edu', 'ZachPassword');
+INSERT INTO users
+    (first_name, last_name, email, password)
+VALUES
+    ('Test', 'User', 'emma@byui.edu', 'TestPassword');
 
 
 

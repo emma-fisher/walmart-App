@@ -163,7 +163,7 @@ function getList(req, res) {
 
     var user_id = 'emma@byui.edu';
 
-    pool.query(`SELECT * FROM items WHERE user_id = ${user_id}`, function (err, result) {
+    pool.query(`SELECT * FROM items WHERE user_id = 'emma@byui.edu'`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
