@@ -176,17 +176,21 @@
                     <img src="<%= rice.mediumImage %>">
                 </div>
                 <div class="content">
-                    <a class="header">Rice</a>
+                    <a class="header">Peaches</a>
                     <div class="description"> $
-                        <%= rice.salePrice %>
-                            <% if (result.rows[4].price.slice(1) > rice.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="priceRice">
+                            <%= rice.salePrice %>
+                        </i>
+                        <% if (result.rows[4].price.slice(1) > rice.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPriceRice">
                                     <%=result.rows[4].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Rice" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -201,15 +205,19 @@
                 <div class="content">
                     <a class="header">Pasta</a>
                     <div class="description"> $
-                        <%= pasta.salePrice %>
-                            <% if (result.rows[5].price.slice(1) > pasta.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="pricePasta">
+                            <%= pasta.salePrice %>
+                        </i>
+                        <% if (result.rows[5].price.slice(1) > pasta.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPricePasta">
                                     <%=result.rows[5].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Pasta" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -224,15 +232,19 @@
                 <div class="content">
                     <a class="header">Potatoes</a>
                     <div class="description"> $
-                        <%= potatoes.salePrice %>
-                            <% if (result.rows[6].price.slice(1) > potatoes.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="pricePotatoes">
+                            <%= potatoes.salePrice %>
+                        </i>
+                        <% if (result.rows[6].price.slice(1) > potatoes.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPricePotatoes">
                                     <%=result.rows[6].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Potatoes" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -247,15 +259,19 @@
                 <div class="content">
                     <a class="header">Juice</a>
                     <div class="description"> $
-                        <%= juice.salePrice %>
-                            <% if (result.rows[7].price.slice(1) > juice.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="priceJuice">
+                            <%= juice.salePrice %>
+                        </i>
+                        <% if (result.rows[7].price.slice(1) > juice.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPriceJuice">
                                     <%=result.rows[7].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Juice" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -270,15 +286,19 @@
                 <div class="content">
                     <a class="header">Tuna</a>
                     <div class="description"> $
-                        <%= tuna.salePrice %>
-                            <% if (result.rows[8].price.slice(1) > tuna.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="priceTuna">
+                            <%= tuna.salePrice %>
+                        </i>
+                        <% if (result.rows[8].price.slice(1) > tuna.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPriceTuna">
                                     <%=result.rows[8].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Tuna" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
@@ -293,15 +313,19 @@
                 <div class="content">
                     <a class="header">Oreo</a>
                     <div class="description"> $
-                        <%= oreo.salePrice %>
-                            <% if (result.rows[9].price.slice(1) > oreo.salePrice) { %>
-                                <span class="date" style="margin-left:25px; color:red;">New price:
+                        <i id="priceOreo">
+                            <%= peaches.salePrice %>
+                        </i>
+                        <% if (result.rows[9].price.slice(1) > oreo.salePrice) { %>
+                            <span class="date" style="margin-left:25px; color:red;">New price:
+                                <i id="newPriceOreo">
                                     <%=result.rows[9].price%>
-                                </span>
-                                <%  }%>
+                                </i>
+                            </span>
+                            <%  }%>
                     </div>
                     <div class="meta">
-                        <button class="ui primary button" onclick="addToList()" style="margin-left:25px; margin-top:10px;">
+                        <button id="Oreo" class="ui primary button" onclick="addToList(this)" style="margin-left:25px; margin-top:10px;">
                             Add to myList
                         </button>
                     </div>
