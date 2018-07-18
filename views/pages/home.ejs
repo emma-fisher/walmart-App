@@ -13,8 +13,8 @@
             var target = event.target || event.srcElement;
             var id = target.id;
             // var price = id.toLowerCase();
-            var price = $("#newPrice").html();
-            console.log(typeof price);
+            var price = $("#newPrice").html().slice(3);
+            console.log(price);
 
             // console.log(price);
 
