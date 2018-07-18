@@ -35,6 +35,7 @@ app.set("port", process.env.PORT || 5000)
     .use(express.static(path.join(__dirname + "/public")))
     .use(logRequest)
     .post('/login', handleLogin)
+    .post('/signUp', handleSignUp)
     .post('/logout', handleLogout)
     .post('/myList', addToList)
     .get("/search/:id", getSearch)
@@ -50,7 +51,7 @@ app.set("port", process.env.PORT || 5000)
  * These methods should likely be moved into a different module
  * But they are hear for ease in looking at the code
  ****************************************************************/
-var name;
+
 // Checks if the username and password match a hardcoded set
 // If they do, put the username on the session
 function handleLogin(request, response) {
@@ -59,8 +60,8 @@ function handleLogin(request, response) {
     };
 
     // We should do better error checking here to make sure the parameters are present
-    if (request.body.username == "admin" && request.body.password == "password") {
-        request.session.user = request.body.username;
+    if (request.body.email && request.body.password) {
+        request.session.email = request.body.email;
         result = {
             success: true
         };
@@ -68,6 +69,26 @@ function handleLogin(request, response) {
 
     response.json(result);
 }
+
+function handleSignUp(req, res) {
+
+    var first_name = req.body.firstname;
+    var last_name = req.body.lastname;
+    var email = req.body.email;
+    var password = req.body.password;
+
+    pool.query(`INSERT INTO users(first_name, last_name, email, password) VALUES('${first_name}', '${last_name}', '${email}', '${password}')`, function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("timeout error");
+            }
+            throw err;
+        }
+
+        res.json(result);
+    })
+}
+
 
 function addToList(req, res) {
     console.log("in add list func");
