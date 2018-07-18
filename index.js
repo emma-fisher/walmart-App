@@ -56,11 +56,11 @@ app.set("port", process.env.PORT || 5000)
 // If they do, put the username on the session
 function handleLogin(req, res) {
 
-    var sessData = req.session;
-    console.log("sessData", sessData);
+    // var sessData = req.session;
+    // console.log("sessData", sessData);
     var email = req.body.email;
     var password = req.body.password;
-    request.session.user = email;
+    req.session.user = email;
 
     pool.query(`SELECT password FROM users WHERE email=${email}`, function (err, result) {
         if (err) {
