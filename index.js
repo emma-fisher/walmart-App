@@ -52,7 +52,7 @@ app.set("port", process.env.PORT || 5000)
  * These methods should likely be moved into a different module
  * But they are hear for ease in looking at the code
  ****************************************************************/
-
+var name;
 // Checks if the username and password match a hardcoded set
 // If they do, put the username on the session
 function handleLogin(request, response) {
