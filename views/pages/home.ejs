@@ -14,10 +14,10 @@
             // console.log("hello", $(this).closest("#price"));
             var theId = "#newPrice" + id;
             console.log(theId);
-            var price = $(`#price${id}`).html();
+            var price = $("#price").html();
 
-            if ($("#newPrice${id}").html() != undefined) {
-                price = $("#newPrice${id}").html();
+            if ($(theId).html() != undefined) {
+                price = $(theId).html();
             }
 
             console.log(price);
