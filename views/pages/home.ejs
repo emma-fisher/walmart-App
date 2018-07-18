@@ -15,8 +15,8 @@
 
             var price = $(`#price${id}`).html();
 
-            if ($("#newPrice").html() != undefined) {
-                price = $("#newPrice").html();
+            if ($("#newPrice${id}").html() != undefined) {
+                price = $("#newPrice${id}").html();
             }
 
             console.log(price);
