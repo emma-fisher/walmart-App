@@ -87,3 +87,8 @@ INSERT INTO items
     (name, price, user_id, url)
 VALUES
     ('Oreo', '2.98', 'fis17001@byui.edu', 'https://i5.walmartimages.com/asr/324ff536-aeb9-4e14-bad4-59c230523e21_1.81fa866b27d2480b10664b1b453ae56e.jpeg?odnHeight=180&odnWidth=180&odnBg=FFFFFF');
+
+
+INSERT INTO items
+    (name, price, user_id)
+VALUES('Banana', '.4', 'emma@byui.edu');
