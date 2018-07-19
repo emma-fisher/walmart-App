@@ -67,7 +67,7 @@ function handleLogin(req, res) {
             res.end();
         } else {
             res.writeHead(301, {
-                Location: "public/login.html"
+                Location: "/login.html"
             });
             res.end();
         }
