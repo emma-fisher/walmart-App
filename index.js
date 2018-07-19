@@ -122,7 +122,7 @@ function handleLogout(request, response) {
  ****************************************************************/
 
 function addToList(req, res) {
-    if (request.session.user) {
+    if (request.session.user != undefined) {
         var name = req.body.name;
         var price = req.body.price;
         var email = request.session.user;
