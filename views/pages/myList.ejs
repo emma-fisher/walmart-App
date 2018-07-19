@@ -23,7 +23,10 @@
                     $("#status").text("Error");
                 }
             })
-            location.reload();
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
+
         }
     </script>
 </head>
