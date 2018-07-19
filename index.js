@@ -123,7 +123,7 @@ function addToList(req, res) {
     if (req.session.user != undefined) {
         var name = req.body.name;
         var price = req.body.price;
-        var email = request.session.user;
+        var email = req.session.user;
         var url = req.body.url;
 
         pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
