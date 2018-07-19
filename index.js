@@ -35,6 +35,7 @@ app.set("port", process.env.PORT || 5000)
     .post('/signUp', handleSignUp)
     .post('/logout', handleLogout)
     .post('/myList', addToList)
+    .post('/remove', remove)
     .get("/search", getSearch)
     .get("/myList", getList)
     .get("/", getHome)
@@ -91,7 +92,7 @@ function handleSignUp(req, res) {
         }
 
         res.writeHead(301, {
-            Location: "/public/login.html"
+            Location: "/login.html"
         });
         res.end();
     })
@@ -110,7 +111,10 @@ function handleLogout(request, response) {
         };
     }
 
-    response.json(result);
+    res.writeHead(301, {
+        Location: "/login.html"
+    });
+    res.end();
 }
 
 
@@ -143,6 +147,24 @@ function addToList(req, res) {
         });
         res.end();
     }
+
+}
+
+
+function remove(req, res) {
+    var name = req.body.name;
+    var email = req.session.user;
+
+    pool.query(`DELETE FROM items WHERE name=${name} AND user_id=${email}`, function (err, result) {
+        if (err) {
+            if (err.code === 'ETIMEDOUT') {
+                console.log("timeout error");
+            }
+            throw err;
+        }
+
+        res.json(result);
+    })
 
 }
 
