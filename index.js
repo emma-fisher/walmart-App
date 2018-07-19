@@ -155,7 +155,7 @@ function remove(req, res) {
     var name = req.body.name;
     var email = req.session.user;
 
-    pool.query(`DELETE FROM items WHERE name=${name} AND user_id=${email}`, function (err, result) {
+    pool.query(`DELETE FROM items WHERE name='${name}' AND user_id='${email}'`, function (err, result) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 console.log("timeout error");
