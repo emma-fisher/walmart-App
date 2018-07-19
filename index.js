@@ -71,9 +71,6 @@ function handleLogin(req, res) {
             });
             res.end();
         }
-        console.log(result.rows[0].password);
-        // res.json(result);
-
     })
 }
 
