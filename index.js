@@ -120,24 +120,22 @@ function handleLogout(request, response) {
 
 function addToList(req, res) {
     console.log("HEYYYY", req.session);
-    if (request.session != undefined) {
-        if (request.session.user != undefined) {
-            var name = req.body.name;
-            var price = req.body.price;
-            var email = request.session.user;
-            var url = req.body.url;
+    if (req.session.user != undefined) {
+        var name = req.body.name;
+        var price = req.body.price;
+        var email = request.session.user;
+        var url = req.body.url;
 
-            pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
-                if (err) {
-                    if (err.code === 'ETIMEDOUT') {
-                        console.log("timeout error");
-                    }
-                    throw err;
+        pool.query(`INSERT INTO items(name, price, user_id, url) VALUES('${name}', '${price}', '${email}', '${url}')`, function (err, result) {
+            if (err) {
+                if (err.code === 'ETIMEDOUT') {
+                    console.log("timeout error");
                 }
+                throw err;
+            }
 
-                res.json(result);
-            })
-        }
+            res.json(result);
+        })
 
     } else {
         res.writeHead(301, {
