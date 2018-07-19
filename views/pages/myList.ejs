@@ -8,32 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script>
-        function addToList() {
+        function remove() {
             var target = event.target || event.srcElement;
             var id = target.id;
 
-            // console.log("hello", $(this).closest("#price"));
-            var stuff = "#price" + id;
-            var theId = "#newPrice" + id;
-            console.log(theId);
-
-            var price = $(stuff).html();
-
-            if ($(theId).html() != undefined) {
-                price = $(theId).html();
-                price = price.slice(1);
-            }
-
-            var myThing = "#" + id.toLowerCase();
-            var url = $(myThing).attr('src');;
-
             var params = {
-                name: id,
-                price: price,
-                url: url
+                name: id
             };
-
-            console.log(params);
 
             $.post("/remove", params, function (result) {
                 if (result && result.success) {
